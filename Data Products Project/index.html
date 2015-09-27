@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Producst Project</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Data Producst Project">
+  <meta name="author" content="Martha Laguna">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Data Producst Project</h1>
+    <h2>Iris Data set, viewed from a Sepal Length perspective</h2>
+    <p>Martha Laguna<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This presentation is part of the final project of the class &quot;Data Products&quot; offered through Coursera.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Dataset details</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>The dataset used for this application is called &quot;iris&quot;. Here is the short description shared in the r library about this dataset:</li>
+</ul>
+
+<p><i>&quot;This famous (Fisher&#39;s or Anderson&#39;s) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.&quot;</i></p>
+
+<ul>
+<li>In this specific application we want to see how selecting an specific Sepal length is related to the species of the iris and how width is directly impacte by it.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Application Components</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The application was done through &quot;shiny&quot;, so it has 2 main components:</p>
+
+<ol>
+<li><p>ui.R. In this component we have build the overall UI framework. It has two main pieces. On the sidebar panel we created an slider so the user can select the Sepal lenght they prefer and on the main panel we have included the documentations and it is where we display the two main outputs. The first output is the data set filtered by the Sepal length the user selected and the second output is a box plot of this filtered data set. </p></li>
+<li><p>server.R. In this file is where we run all the calculations after receiving the multiple inputs from the user. The next slide shows the code used for it. </p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>server.R code</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>For this code, instead of sending the input from the user, we&#39;ll process the data with the median value &quot;5.8&quot;.</p>
+
+<pre><code class="r">mydata&lt;- iris
+subset&lt;- mydata[which(mydata$Sepal.Length==5.8),]
+subset
+</code></pre>
+
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 15           5.8         4.0          1.2         0.2     setosa
+## 68           5.8         2.7          4.1         1.0 versicolor
+## 83           5.8         2.7          3.9         1.2 versicolor
+## 93           5.8         2.6          4.0         1.2 versicolor
+## 102          5.8         2.7          5.1         1.9  virginica
+## 115          5.8         2.8          5.1         2.4  virginica
+## 143          5.8         2.7          5.1         1.9  virginica
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Dataset details'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Application Components'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='server.R code'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

@@ -1,0 +1,50 @@
+---
+title       : Data Producst Project
+subtitle    : Iris Data set, viewed from a Sepal Length perspective
+author      : Martha Laguna
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Introduction
+
+This presentation is part of the final project of the class "Data Products" offered through Coursera.
+
+--- .class #id 
+
+## Dataset details
+
+- The dataset used for this application is called "iris". Here is the short description shared in the r library about this dataset:
+
+<i>"This famous (Fisher's or Anderson's) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica."</i>
+
+- In this specific application we want to see how selecting an specific Sepal length is related to the species of the iris and how width is directly impacte by it.
+
+
+--- 
+
+## Application Components
+
+The application was done through "shiny", so it has 2 main components:
+
+1. ui.R. In this component we have build the overall UI framework. It has two main pieces. On the sidebar panel we created an slider so the user can select the Sepal lenght they prefer and on the main panel we have included the documentations and it is where we display the two main outputs. The first output is the data set filtered by the Sepal length the user selected and the second output is a box plot of this filtered data set. 
+
+2. server.R. In this file is where we run all the calculations after receiving the multiple inputs from the user. The next slide shows the code used for it. 
+
+--- 
+
+## server.R code
+For this code, instead of sending the input from the user, we'll process the data with the median value "5.8".
+
+```{r}
+mydata<- iris
+subset<- mydata[which(mydata$Sepal.Length==5.8),]
+subset
+```
+
+
